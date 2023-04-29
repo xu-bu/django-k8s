@@ -1,0 +1,21 @@
+# by applying deployment, we are able to deploy multiple pods
+# in this file, we deploy 3 replicas pods for nginx and each container a container of image [nginx:latest]
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-deployment
+  template:
+    metadata:
+      labels:
+        app: nginx-deployment
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
