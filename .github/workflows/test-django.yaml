@@ -20,7 +20,7 @@ jobs:
       DB_IGNORE_SSL: "true"
     services:
       postgres_main:
-        image: postgres:13
+        image: postgres:15
         env:
           POSTGRES_DB: ${{ env.POSTGRES_DB }}
           POSTGRES_USER: ${{ env.POSTGRES_USER }}
