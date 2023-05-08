@@ -1,5 +1,5 @@
 name: Django CI & Postgres Test
-
+# when push to github, it will run a test automatically
 on:
   workflow_call:
   workflow_dispatch:

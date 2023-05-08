@@ -10,7 +10,7 @@ on:
 
 jobs:
   test_django_job:
-    uses: codingforentrepreneurs/Django-Kubernetes/.github/workflows/test-django.yaml@main
+    uses: xu-bu/django-k8s/.github/workflows/test-django.yaml@main
   build:
     runs-on: ubuntu-latest
     needs: [test_django_job]
