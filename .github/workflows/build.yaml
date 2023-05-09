@@ -56,12 +56,12 @@ jobs:
           EOF
           kubectl delete secret django-k8s-web-prod-env
           kubectl create secret generic django-k8s-web-prod-env --from-env-file=web/.env.prod
-      - name: Update Deployment image
-        run: |
-          kubectl set image deployment/django-k8s-web-deployment django-k8s-web=registry.digitalocean.com/my-cr/django-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
-      - name: Wait for rollout to finish
-        run: |
-          kubectl rollout status deployment/django-k8s-web-deployment
+      # - name: Update Deployment image
+      #   run: |
+      #     kubectl set image deployment/django-k8s-web-deployment django-k8s-web=registry.digitalocean.com/my-cr/django-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
+      # - name: Wait for rollout to finish
+      #   run: |
+      #     kubectl rollout status deployment/django-k8s-web-deployment
       - name: Post-build Django Commands - Migrate / Collectstatic
         run: |
           export SINGLE_POD_NAME=$(kubectl get pod -l app=django-k8s-web-deployment -o jsonpath="{.items[0].metadata.name}")
