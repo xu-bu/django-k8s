@@ -32,6 +32,8 @@ Make sure it's consistant with .yaml files and currently we don't need to config
 `docker compose up --build` or run `docker compose up -d` to get in detached mode. If anything wrong, run `docker compose down` to remove what we built and build again
 
 # Deploy on digitalOcean:
+Since we've written github workflow file, we are albe to deploy our image on k8s when push project to github.
+
 Go to digitalOcean, create a k8s cluster and follow the instruction to  connect it. To use image, we also need to create a container registry. After creating it, run `docker login registry.digitalocean.com`, the username and password will be digital ocean API token. Then go to github, settings--secrets and variables--actions--new repository secret, name is DO_API_TOKEN_KEY and value is API value of digital ocean. After configuration, whenever you push it to github, it will automatically push image to container registry of digital ocean and create containers.
 
 # Deploy on digitalOcean manually:
