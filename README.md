@@ -51,7 +51,7 @@ Create a database cluster on digital ocean and choose VPC to connect, then you a
 
 Now we run `kubectl.exe get secrets` and we are able to see the secret of digital ocean container registry.
 
-Then we run `kubectl create secret generic django-k8s-web-prod-env --from-env-file=web/.env.prod` to create secret from .env.prod. If it's succesful, we are albe to use `kubectl.exe get secrets django-k8s-web-prod-env -o yaml` to see the detail of this secret.
+Then we run `kubectl create secret generic django-k8s-web-prod-env --from-env-file=web/.env.prod` to create secret from .env.prod. Then we are able to use this secret as a reference to specify environment in k8s yaml file. If it's succesful, we are albe to use `kubectl.exe get secrets django-k8s-web-prod-env -o yaml` to see the detail of this secret.
 
 After completing all these configuration, we are able to deploy our app by running `kubectl.exe apply -f .\django-k8s-web.yaml`. After executing it, we are able to see a new deployment by running `kubectl get deployments`. Since this deployment creates new pods and a new service, we can also check it by running `kubectl get services` and `kubectl get pods`.
 
